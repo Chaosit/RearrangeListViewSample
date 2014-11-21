@@ -31,6 +31,7 @@ public class RearrangeListView extends ListView {
     private List<Animator> animators = new ArrayList<Animator>();
     private List<Long> oldIds = new ArrayList<Long>();
     private boolean animating = false;
+	private int currentTopPos = 0;
 
     private AdapterDatasetChangedObserver mObserver = new AdapterDatasetChangedObserver();
 
@@ -198,7 +199,7 @@ public class RearrangeListView extends ListView {
             newBottom = getHeight() + v.getHeight();
         }
         else {
-            newTop = getChildAt(0).getTop() + (newPos - getFirstVisiblePosition()) * (v.getMeasuredHeight() + getDividerHeight());
+            newTop = currentTopPos + (newPos - getFirstVisiblePosition()) * (v.getMeasuredHeight() + getDividerHeight());
             newBottom = newTop + v.getMeasuredHeight();
         }
 
@@ -343,6 +344,9 @@ public class RearrangeListView extends ListView {
         @Override
         public void onChanged() {
             super.onChanged();
+			//a bit dirty hack but otherwise weird behaviour is observed
+			if (getChildCount() != 0) currentTopPos = getChildAt(0).getTop();
+			else currentTopPos = 0;
             rearrangeViews(prepareMovementMap());
             cacheIdOrder();
         }
