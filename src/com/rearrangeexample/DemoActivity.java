@@ -19,7 +19,7 @@ import java.util.*;
  * @author V.Bolnykh
  * Demo Activity for working with RearrangeListView
  */
-public class MyActivity extends Activity {
+public class DemoActivity extends Activity {
 
     private RearrangeListView listView;
     private List<TestItem> itemList;
@@ -40,7 +40,6 @@ public class MyActivity extends Activity {
     private void prepareDataSet(int length) {
         itemList = new ArrayList<TestItem>(length);
         for (int i=0; i<length; i++) {
-
             TestItem item = new TestItem();
             item.setId(i);
             long currentTime = new Date().getTime();
