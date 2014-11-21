@@ -198,8 +198,8 @@ public class RearrangeListView extends ListView {
             newBottom = getHeight() + v.getHeight();
         }
         else {
-            newTop = getChildAt(0).getTop() + newPos * (v.getMeasuredHeight() + getDividerHeight()) - getFirstVisiblePosition() * (v.getMeasuredHeight() + getDividerHeight());
-            newBottom = getChildAt(0).getTop() + (newPos+1) * (v.getMeasuredHeight() + getDividerHeight()) - getFirstVisiblePosition() * (v.getMeasuredHeight() + getDividerHeight());
+            newTop = getChildAt(0).getTop() + (newPos - getFirstVisiblePosition()) * (v.getMeasuredHeight() + getDividerHeight());
+            newBottom = newTop + v.getMeasuredHeight();
         }
 
         Rect hoverCellNewBounds = new Rect(hoverCellOriginalBounds.left,
