@@ -3,4 +3,6 @@
     <string name="app_name">rearrangeexample</string>
 
     <string name="id_tag">com.rearrangeview.id</string>
+    <string name="sor_by_id">Sort by id</string>
+    <string name="sort_by_date">Sort by date</string>
 </resources>

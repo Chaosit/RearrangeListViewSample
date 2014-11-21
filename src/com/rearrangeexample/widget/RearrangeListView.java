@@ -225,10 +225,10 @@ public class RearrangeListView extends ListView {
     }
 
     /**
-     * Check if current and new positions are out of ListViews field of sight
+     * Check if current and new positions are out of ListViews field of view
      * @param currentPosition current view position
      * @param newPosition new view position
-     * @return true if view is outside of field of sight
+     * @return true if view is outside of field of view
      */
     private boolean positionsOutOfView(int currentPosition, int newPosition) {
         return currentPosition < getFirstVisiblePosition() && newPosition < getFirstVisiblePosition() ||

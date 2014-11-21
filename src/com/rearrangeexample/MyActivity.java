@@ -15,14 +15,17 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+/**
+ * Demo Activity for working with RearrangeListView
+ */
 public class MyActivity extends Activity {
-    /**
-     * Called when the activity is first created.
-     */
 
     private RearrangeListView listView;
     private List<TestItem> itemList;
     RearrangeAdapterWrapper adapter;
+
+    private static final int SORT_ID_POSITION = 1;
+    private static final int SORT_DATE_POSITION = 2;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,6 +48,7 @@ public class MyActivity extends Activity {
         }
         adapter = new RearrangeAdapterWrapper(new TestAdapter());
         listView.setAdapter(adapter);
+        listView.setAnimationDuration(500);
     }
 
     private class TestAdapter extends BaseAdapter {
@@ -104,16 +108,15 @@ public class MyActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        menu.add(1, 1, Menu.NONE,"Sort by id");
-        menu.add(1, 2, Menu.NONE,"Sort by date");
+        menu.add(1, SORT_ID_POSITION, Menu.NONE,getString(R.string.sor_by_id));
+        menu.add(1, SORT_DATE_POSITION, Menu.NONE,getString(R.string.sort_by_date));
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-//        List<TestItem> testList = new ArrayList<TestItem>(itemList);
         switch (item.getItemId()) {
-            case 1:{
+            case SORT_ID_POSITION:{
                 Collections.sort(itemList, new Comparator<TestItem>() {
                     @Override
                     public int compare(TestItem lhs, TestItem rhs) {
@@ -122,7 +125,7 @@ public class MyActivity extends Activity {
                 });
                 break;
             }
-            case 2:{
+            case SORT_DATE_POSITION:{
                 Collections.sort(itemList, new Comparator<TestItem>() {
                     @Override
                     public int compare(TestItem lhs, TestItem rhs) {
