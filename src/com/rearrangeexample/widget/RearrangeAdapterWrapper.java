@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * @author V.Bolnykh
  * Adapter wrapper which delegates basic method calls to underlying adapter, hides views which are being moved,
  * and verifies that a new update of view's positions won't start until previous is finished
  */

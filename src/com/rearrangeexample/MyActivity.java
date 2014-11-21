@@ -16,6 +16,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
+ * @author V.Bolnykh
  * Demo Activity for working with RearrangeListView
  */
 public class MyActivity extends Activity {

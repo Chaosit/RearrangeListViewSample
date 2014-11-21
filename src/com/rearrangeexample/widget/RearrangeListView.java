@@ -17,6 +17,7 @@ import com.nineoldandroids.animation.*;
 import java.util.*;
 
 /**
+ * @author V.Bolnykh
  * View which animatedly rearranges child views
  * NOTE! Adapter should have stable Ids
  */
